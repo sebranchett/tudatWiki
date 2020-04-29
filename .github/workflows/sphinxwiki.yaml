@@ -16,3 +16,12 @@ jobs:
       run: |
         make html
         ls -al build/html
+
+    - name: Push to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build/html
+        # effectively does something like:
+        # git add build/html && git commit -m "Commit build/html to gh-pages"
+        # git subtree push --prefix build/html origin gh-pages
