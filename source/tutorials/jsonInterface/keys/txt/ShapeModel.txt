@@ -1,4 +1,0 @@
-string | type |  | m |  | spherical, sphericalSpice, oblateSpheroid
-
-- Spherical Shape Model
-- Oblate Spheroid Shape Model

@@ -1,3 +1,0 @@
-string | bodyDeformationType |  | m |  | basicSolidBody, basicSolidBody
-- Basic Solid Body Gravity Field Variation
-- Tabulated Gravity Field Variation

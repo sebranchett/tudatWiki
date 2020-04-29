@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7. Boost: Basic Concepts &mdash; TU Delft Astrodynamic Toolbox  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="TU Delft Astrodynamic Toolbox  documentation" href="../../../index.html"/>
+        <link rel="up" title="Tudat Basics" href="../index.html"/>
+        <link rel="next" title="JSON Interface" href="../../jsonInterface/index.html"/>
+        <link rel="prev" title="6. Selected C++ Aspects" href="cppTutorials.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> TU Delft Astrodynamic Toolbox
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Start Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Tutorials and Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../applicationWalkthroughs/index.html">Application Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tudatFeatures/index.html">Tudat Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Tudat Basics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="eigen.html">1. Eigen: Basic Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eigenExamples.html">2. Eigen: Usage Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utility.html">3. Dynamic Memory and Function Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utilityExamples.html">4. Dynamic Memory: Usage Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utilityExamples.html#function-objects-usage-examples">5. Function Objects: Usage Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cppTutorials.html">6. Selected C++ Aspects</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7. Boost: Basic Concepts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#why-use-boost">7.1. Why use Boost?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-boost-features">7.2. Common Boost Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#boost-shared-libraries-dynamic-linking">7.3. Boost Shared Libraries (Dynamic Linking)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../jsonInterface/index.html">JSON Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlabInterface/index.html">MATLAB Interface</a></li>
+<li class="toctree-l2"><a class="reference external" href="http://doxygen.tudat.tudelft.nl">Doxygen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developerGuide/index.html">Developer Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">TU Delft Astrodynamic Toolbox</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Tutorials and Documentation</a> &raquo;</li>
+        
+          <li><a href="../index.html">Tudat Basics</a> &raquo;</li>
+        
+      <li>7. Boost: Basic Concepts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/tutorials/basics/externalLibraries/boost.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="boost-basic-concepts">
+<span id="externalboost"></span><h1>7. Boost: Basic Concepts<a class="headerlink" href="#boost-basic-concepts" title="Permalink to this headline">¶</a></h1>
+<p>Boost is a collection of useful libraries providing a wide variety of functionality in C++ that we use. The Boost library is included in the Tudat Bundle, pre-compiled and ready for use. Alternatively, you can download the library from the Boost website itself, where you will find downloads and documentation for different operating systems. Note that when downloading the Boost library, you will have to compile it yourself.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">For Windows, pre-built binaries are available. In this case, compilation is not necessary by the user.</p>
+</div>
+<p>General information on Boost can be found on the&nbsp;Boost website. This website also contains documentation on all Boost features. Be sure to look up the version number of the Boost library that you are using when checking out this documentation. Note that the Boost documentation can be quite complex, especially for people who are starting to learn and use C++ and Tudat.</p>
+<div class="section" id="why-use-boost">
+<h2>7.1. Why use Boost?<a class="headerlink" href="#why-use-boost" title="Permalink to this headline">¶</a></h2>
+<p>Boost is a collection of generally well-coded C++ libraries that are a substantial addition to the standard libraries. Some Boost features are particularly useful for Tudat and are frequently used for two reasons:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>It makes the use of some Tudat features easier.</li>
+<li>It makes the Tudat library more robust.</li>
+</ol>
+</div></blockquote>
+<p>Although the above two cases represent the main Boost features that are throughout much of the code, there are many other instances of usages of other specific Boost functionalities in both the library and users’ applications.</p>
+</div>
+<div class="section" id="common-boost-features">
+<h2>7.2. Common Boost Features<a class="headerlink" href="#common-boost-features" title="Permalink to this headline">¶</a></h2>
+<p>In general, you will see the use of Boost in the following cases:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>Multi-dimensional Arrays</strong></p>
+<blockquote>
+<div><p>In C++, vectors and matrices are usually defined by using the <code class="docutils literal"><span class="pre">Eigen</span></code> library (see <a class="reference internal" href="eigen.html#externaleigen"><span class="std std-ref">Eigen: Basic Concepts</span></a> for an introduction). Despite their usefulness, however, these linear algebra tools are only defined for up to 2-dimensional matrices. In case you wanted to store data with more dimensions, then it is common practice in Tudat to use <code class="docutils literal"><span class="pre">boost::multi_array</span></code>. You can find examples of the use of this objects, whenever files are read or written, and for the storage of aerodynamic coefficients, tabulated atmospheres, etc.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Random Number Generators</strong></p>
+<blockquote>
+<div><p>Generation of random numbers in Tudat is done with the aid of Boost. You can see <a class="reference internal" href="../../tudatFeatures/mathTools/probabilityDistributions.html#tudatfeaturesprobabilitydistributions"><span class="std std-ref">Probability Distributions</span></a> for a description of the available distributions and how they are used.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Special Math Operators</strong></p>
+<blockquote>
+<div><p>The use of inverse hyperbolic, cumulative distribution and probability density functions are taken from the Boost libraries.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Date Conversions</strong></p>
+<blockquote>
+<div><p>Similarly to the case above, conversion between various dates format (day/month/year to Gregorian dates) is done with Boost.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>File Management</strong></p>
+<blockquote>
+<div><p>File management with Boost allows for the creation of directories, to check if directories exist, manipulation of paths, etc.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Unit Tests</strong></p>
+<blockquote>
+<div><p>Testing of Tudat features is fully based on the unit testing suite provided by Boost. It allows for very structured and consistent verification of Tudat function and for simple addition of new tests.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Other</strong></p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="boost-shared-libraries-dynamic-linking">
+<h2>7.3. Boost Shared Libraries (Dynamic Linking)<a class="headerlink" href="#boost-shared-libraries-dynamic-linking" title="Permalink to this headline">¶</a></h2>
+<p>During the build process of any application, multiple object files can be linked in a library. This library can be linked either statically or dynamically. Usually, we make use of the static Boost libraries. These files have the extension <code class="docutils literal"><span class="pre">.a</span></code> and can be found in the <code class="docutils literal"><span class="pre">boost/stage/lib</span> <span class="pre">directory</span></code>. However, it could be that you require the dynamically linked libraries (for instance, if you are making use of&nbsp;PaGMO). These files have the extension <code class="docutils literal"><span class="pre">.dll</span></code> and can be found in the <code class="docutils literal"><span class="pre">boost/shared</span></code> directory.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../jsonInterface/index.html" class="btn btn-neutral float-right" title="JSON Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cppTutorials.html" class="btn btn-neutral" title="6. Selected C++ Aspects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Delft University of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header .arrow").click(function() {
+            $(this).closest('.toggle').children().not(".header").toggle(400);
+            $(this).toggleClass("open");
+            // $(this).html() == "More" ? $(this).html('Less') : $(this).html('More');
+        });
+        $(".showall").click(function() {
+            $(".toggle > *").show(400);
+            $(".toggle .header .arrow").addClass("open");
+        });
+        $(".hideall").click(function() {
+            $(".toggle > *").hide(400);
+            $(".toggle .header").show(400);
+            $(".toggle .header .arrow").removeClass("open");
+        });
+    });
+</script>
+
+
+</body>
+</html>

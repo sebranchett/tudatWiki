@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Environment Set-up &mdash; TU Delft Astrodynamic Toolbox  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="TU Delft Astrodynamic Toolbox  documentation" href="../../../index.html"/>
+        <link rel="up" title="Tudat Libraries" href="../index.html"/>
+        <link rel="next" title="1.1. Setting up the Environment" href="setup.html"/>
+        <link rel="prev" title="Tudat Libraries" href="../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> TU Delft Astrodynamic Toolbox
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Start Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Tutorials and Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../applicationWalkthroughs/index.html">Application Tutorials</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Tudat Libraries</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. Environment Set-up</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="setup.html">1.1. Setting up the Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="availableSettings.html">1.2. Available Settings for the Environment Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="duringPropagation.html">1.3. The Environment During Propagation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tabulatedAtmosphere.html">1.4. Tabulated Atmosphere Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aerodynamicCoefficients.html">1.5. Aerodynamic Coefficients</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../accelerationSetup/index.html">2. Setting up State Derivative Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../propagationSetup/index.html">3. Simulator Set-Up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../estimationSetup/index.html">4. Estimation Set-Up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../astroTools/index.html">5. Basic Astrodynamics Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lowThrustTrajectoryDesign/index.html">6. Low-Thrust Trajectory Design Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mathTools/index.html">7. Basic Mathematics Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../otherLibraries/index.html">8. Other Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../basics/index.html">Tudat Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jsonInterface/index.html">JSON Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlabInterface/index.html">MATLAB Interface</a></li>
+<li class="toctree-l2"><a class="reference external" href="http://doxygen.tudat.tudelft.nl">Doxygen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developerGuide/index.html">Developer Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">TU Delft Astrodynamic Toolbox</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Tutorials and Documentation</a> &raquo;</li>
+        
+          <li><a href="../index.html">Tudat Libraries</a> &raquo;</li>
+        
+      <li>1. Environment Set-up</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/tutorials/tudatFeatures/environmentSetup/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="environment-set-up">
+<span id="tudatfeaturesenvironmentindex"></span><h1>1. Environment Set-up<a class="headerlink" href="#environment-set-up" title="Permalink to this headline">¶</a></h1>
+<p>Models for the physical environment are one of the cornerstones of a numerical astrodynamics toolbox. Here, we define the environment in the broadest sense, including all physical properties of the solar system, such as atmospheres and gravity fields, but also any models for the orbits and rotations of these bodies.</p>
+<p>On this page, we will give an overview of how the environment is represented in Tudat, which models have been implemented, and how to create the environment that is tailored to your needs. A graphical representation of the basic structure for implementing the environment is shown below. For the options within these settings object, please click on the object in the figure.</p>
+digraph
+{
+   # General diagram settings
+   rankdir = &quot;LR&quot;;
+   splines = ortho;
+   compound = true;
+
+
+   # general node settings
+   node [shape = box, style = filled, width = 1.25, fixedsize = true, color = lightgrey, fontname = Times, fontsize = 9];
+
+
+   # specific node color settings
+   NamedBodyMap [color = lightgreen];
+   BodySettings [color = lightblue];
+
+
+   # Hyperlinks (Sphinx auto referencing not working here, need to link to exact web adres)
+   &quot;GravityField\nVariationSettings&quot; [href = &quot;http://tudat.tudelft.nl/tutorials/tudatFeatures/environmentSetup/index.html#GravityFieldVariationSettings&quot;, target = &quot;_top&quot;];
+   &quot;RotationModelSettings&quot; [href = &quot;http://tudat.tudelft.nl/tutorials/tudatFeatures/environmentSetup/index.html#RotationModelSettings&quot;, target = &quot;_top&quot;];
+   &quot;Aerodynamic\nCoefficientSettings&quot; [href = &quot;http://tudat.tudelft.nl/tutorials/tudatFeatures/environmentSetup/index.html#AerodynamicCoefficientSettings&quot;, target = &quot;_top&quot;];
+   &quot;BodyShapeSettings&quot; [href = &quot;http://tudat.tudelft.nl/tutorials/tudatFeatures/environmentSetup/index.html#BodyShapeSettings&quot;, target = &quot;_top&quot;];
+   &quot;RadiationPressure\nInterfaceSettings&quot; [href = &quot;http://tudat.tudelft.nl/tutorials/tudatFeatures/environmentSetup/index.html#RadiationPressureInterfaceSettings&quot;, target = &quot;_top&quot;];
+   &quot;AtmosphereSettings&quot; [href = &quot;http://tudat.tudelft.nl/tutorials/tudatFeatures/environmentSetup/index.html#AtmosphereSettings&quot;, target = &quot;_top&quot;];
+   &quot;GravityFieldSettings&quot; [href = &quot;http://tudat.tudelft.nl/tutorials/tudatFeatures/environmentSetup/index.html#GravityFieldSettings&quot;, target = &quot;_top&quot;];
+   &quot;EphemerisSettings&quot; [href = &quot;http://tudat.tudelft.nl/tutorials/tudatFeatures/environmentSetup/index.html#EphemerisSettings&quot;, target = &quot;_top&quot;];
+   BodySettings [href = &quot;http://tudat.tudelft.nl/tutorials/tudatFeatures/environmentSetup/index.html#BodySettings&quot;, target = &quot;_top&quot;];
+   NamedBodyMap [href = &quot;http://tudat.tudelft.nl/tutorials/tudatFeatures/environmentSetup/index.html#NamedBodyMap&quot;, target = &quot;_top&quot;];
+
+
+   # NamedBodyMap input
+   BodySettings -&gt; NamedBodyMap;
+   &quot;User-defined \nbodies&quot; [style = dotted, fillcolor = lightgrey, color = black];
+   &quot;User-defined \nbodies&quot; -&gt; NamedBodyMap;
+   {rank = same; BodySettings, NamedBodyMap};
+
+
+   # BodySettings input
+   EphemerisSettings -&gt; BodySettings [ltail = clusterEnvironmentSettings];
+   getDefaultBodySettings -&gt; BodySettings;
+
+
+   # getDefaultBodySettings input
+   bodyNames -&gt; getDefaultBodySettings;
+   &quot;(initial/final) time&quot; -&gt; getDefaultBodySettings;
+   &quot;(initial/final) time&quot; [style = dotted, fillcolor = lightgrey, color = black];
+
+             #point0 [shape = point, style = vis, width = 0.1];
+   #point0 -&gt; &quot;setGlobalFrame\nBodyEphemerides&quot;;
+   #point0 -&gt; &quot;NamedBodyMap&quot;;
+   #BodySettings -&gt; point0;
+
+   # Cluster all environment settings derived classes
+   subgraph clusterEnvironmentSettings
+   {
+      # cluster settings
+      label = &quot;User-defined environment settings&quot;;
+      fontsize = 9;
+      style = dashed;
+      rank = min;
+
+      # Make three collumns
+      {rank = same; AtmosphereSettings, EphemerisSettings, GravityFieldSettings};
+      {rank = same; &quot;GravityField\nVariationSettings&quot;, &quot;RadiationPressure\nInterfaceSettings&quot;};
+      {rank = same; &quot;Aerodynamic\nCoefficientSettings&quot;, BodyShapeSettings, RotationModelSettings};
+
+      BodyShapeSettings -&gt; EphemerisSettings [style = invis];
+      &quot;RadiationPressure\nInterfaceSettings&quot; -&gt; BodyShapeSettings [style = invis];
+      &quot;GravityField\nVariationSettings&quot; -&gt; RotationModelSettings [style = invis];
+   }
+   &quot;setGlobalFrame\nBodyEphemerides&quot; -&gt; NamedBodyMap [dir = both];
+   &quot;Frame origin\n&amp; orientation&quot; -&gt; &quot;setGlobalFrame\nBodyEphemerides&quot;;
+
+
+   {&quot;RadiationPressure\nInterfaceSettings&quot;, &quot;GravityField\nVariationSettings&quot; [fillcolor = lightcoral]};
+}digraph
+{
+   # General diagram settings
+   rankdir = &quot;LR&quot;;
+   splines = ortho;
+   compound = true;
+
+   subgraph clusterLegend
+   {
+   rank = min;
+   style = dashed;
+
+
+     # general node settings
+     node [shape = box, style = filled, width = 1.25, fixedsize = true, color = lightgrey, fontname = Times, fontsize = 9];
+
+
+     &quot;List of settings&quot; [ fillcolor = lightcoral];
+     &quot;Main block&quot; [fillcolor = lightgreen];
+     &quot;Optional input&quot; [style = dotted, fillcolor = lightgrey, color = black];
+     &quot;Input for \nmain block&quot; [fillcolor = lightblue];
+     &quot;Optional input&quot;-&gt; &quot;List of settings&quot; -&gt; &quot;Input for \nmain block&quot; -&gt; &quot;Main block&quot; [style = invis];
+   }
+}<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">1.1. Setting up the Environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#creating-the-environment-from-bodysettings">1.1.1. Creating the environment from&nbsp;<code class="docutils literal"><span class="pre">BodySettings</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#manually-creating-the-environment">1.1.2. Manually creating the environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#valid-time-range-of-environment">1.1.3. Valid Time-Range of Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="availableSettings.html">1.2. Available Settings for the Environment Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="availableSettings.html#atmosphere-model">1.2.1. Atmosphere model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="availableSettings.html#ephemeris-model">1.2.2. Ephemeris model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="availableSettings.html#gravity-field-model">1.2.3. Gravity field model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="availableSettings.html#rotational-model">1.2.4. Rotational model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="availableSettings.html#body-shape-model">1.2.5. Body shape model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="availableSettings.html#radiation-pressure-interface">1.2.6. Radiation pressure interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="availableSettings.html#aerodynamic-coefficient-interface">1.2.7. Aerodynamic coefficient interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="availableSettings.html#time-variations-of-the-gravity-field">1.2.8. Time-variations of the gravity field</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="duringPropagation.html">1.3. The Environment During Propagation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tabulatedAtmosphere.html">1.4. Tabulated Atmosphere Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tabulatedAtmosphere.html#general-tabulated-atmosphere">1.4.1. General Tabulated Atmosphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tabulatedAtmosphere.html#altitude-dependent-tabulated-atmosphere">1.4.2. Altitude-dependent Tabulated Atmosphere</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tabulatedAtmosphere.html#old-constructor">1.4.2.1. Old Constructor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tabulatedAtmosphere.html#new-constructor">1.4.2.2. New Constructor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tabulatedAtmosphere.html#included-atmosphere-tables">1.4.3. Included Atmosphere Tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tabulatedAtmosphere.html#earth">1.4.3.1. Earth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tabulatedAtmosphere.html#mars">1.4.3.2. Mars</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tabulatedAtmosphere.html#writing-multi-dimensional-files">1.4.4. Writing Multi-dimensional Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tabulatedAtmosphere.html#future-additions">1.4.5. Future Additions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aerodynamicCoefficients.html">1.5. Aerodynamic Coefficients</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aerodynamicCoefficients.html#local-incliniation-methods">1.5.1. Local Incliniation Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aerodynamicCoefficients.html#reading-aerodynamic-coefficients-from-files">1.5.2. Reading aerodynamic coefficients from Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aerodynamicCoefficients.html#custom-aerodynamic-coefficient-settings">1.5.3. Custom Aerodynamic Coefficient Settings</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="setup.html" class="btn btn-neutral float-right" title="1.1. Setting up the Environment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Tudat Libraries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Delft University of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header .arrow").click(function() {
+            $(this).closest('.toggle').children().not(".header").toggle(400);
+            $(this).toggleClass("open");
+            // $(this).html() == "More" ? $(this).html('Less') : $(this).html('More');
+        });
+        $(".showall").click(function() {
+            $(".toggle > *").show(400);
+            $(".toggle .header .arrow").addClass("open");
+        });
+        $(".hideall").click(function() {
+            $(".toggle > *").hide(400);
+            $(".toggle .header").show(400);
+            $(".toggle .header .arrow").removeClass("open");
+        });
+    });
+</script>
+
+
+</body>
+</html>

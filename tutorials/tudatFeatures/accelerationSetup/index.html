@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Setting up State Derivative Models &mdash; TU Delft Astrodynamic Toolbox  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="TU Delft Astrodynamic Toolbox  documentation" href="../../../index.html"/>
+        <link rel="up" title="Tudat Libraries" href="../index.html"/>
+        <link rel="next" title="2.1. Acceleration Model Set-up" href="frameworkAcceleration.html"/>
+        <link rel="prev" title="1.5. Aerodynamic Coefficients" href="../environmentSetup/aerodynamicCoefficients.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> TU Delft Astrodynamic Toolbox
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Start Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Tutorials and Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../applicationWalkthroughs/index.html">Application Tutorials</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Tudat Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../environmentSetup/index.html">1. Environment Set-up</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2. Setting up State Derivative Models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="frameworkAcceleration.html">2.1. Acceleration Model Set-up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rotModel.html">2.2. Torque Model Set-up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="massModel.html">2.3. Mass Rate Model Set-up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aerodynamicGuidance.html">2.4. Aerodynamic Guidance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thrustModels.html">2.5. Thrust Guidance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../propagationSetup/index.html">3. Simulator Set-Up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../estimationSetup/index.html">4. Estimation Set-Up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../astroTools/index.html">5. Basic Astrodynamics Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lowThrustTrajectoryDesign/index.html">6. Low-Thrust Trajectory Design Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mathTools/index.html">7. Basic Mathematics Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../otherLibraries/index.html">8. Other Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../basics/index.html">Tudat Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jsonInterface/index.html">JSON Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlabInterface/index.html">MATLAB Interface</a></li>
+<li class="toctree-l2"><a class="reference external" href="http://doxygen.tudat.tudelft.nl">Doxygen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developerGuide/index.html">Developer Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">TU Delft Astrodynamic Toolbox</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Tutorials and Documentation</a> &raquo;</li>
+        
+          <li><a href="../index.html">Tudat Libraries</a> &raquo;</li>
+        
+      <li>2. Setting up State Derivative Models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/tutorials/tudatFeatures/accelerationSetup/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setting-up-state-derivative-models">
+<span id="tudatfeaturesaccelerationindex"></span><h1>2. Setting up State Derivative Models<a class="headerlink" href="#setting-up-state-derivative-models" title="Permalink to this headline">¶</a></h1>
+<p>Here, we go into detail on how to set up state derivative models, such as accelerations, torques and mass-rate models, in Tudat. The design of the state derivative interfaces is discussed in detail for the acceleration models. Setup of the other state derivative models (rotation, mass) follows a similar approach. For the aerodynamic and thrust forces, we provide dedicated wiki pages.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="frameworkAcceleration.html">2.1. Acceleration Model Set-up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="frameworkAcceleration.html#acceleration-settings">2.1.1. Acceleration settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frameworkAcceleration.html#available-acceleration-models">2.1.2. Available acceleration models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rotModel.html">2.2. Torque Model Set-up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rotModel.html#available-models">2.2.1. Available Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="massModel.html">2.3. Mass Rate Model Set-up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aerodynamicGuidance.html">2.4. Aerodynamic Guidance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aerodynamicGuidance.html#vehicle-orientation">2.4.1. Vehicle orientation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aerodynamicGuidance.html#manual-angle-functions">2.4.1.1. Manual angle functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aerodynamicGuidance.html#predefined-guidance-law">2.4.1.2. Predefined guidance law</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aerodynamicGuidance.html#user-defined-aerodynamic-orientation">2.4.1.3. User-defined aerodynamic orientation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aerodynamicGuidance.html#using-the-environment-models">2.4.1.4. Using the environment models</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aerodynamicGuidance.html#control-surface-deflections">2.4.2. Control surface deflections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thrustModels.html">2.5. Thrust Guidance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thrustModels.html#thrust-direction">2.5.1. Thrust direction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thrustModels.html#thrust-magnitude">2.5.2. Thrust magnitude</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="frameworkAcceleration.html" class="btn btn-neutral float-right" title="2.1. Acceleration Model Set-up" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../environmentSetup/aerodynamicCoefficients.html" class="btn btn-neutral" title="1.5. Aerodynamic Coefficients" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Delft University of Technology.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header .arrow").click(function() {
+            $(this).closest('.toggle').children().not(".header").toggle(400);
+            $(this).toggleClass("open");
+            // $(this).html() == "More" ? $(this).html('Less') : $(this).html('More');
+        });
+        $(".showall").click(function() {
+            $(".toggle > *").show(400);
+            $(".toggle .header .arrow").addClass("open");
+        });
+        $(".hideall").click(function() {
+            $(".toggle > *").hide(400);
+            $(".toggle .header").show(400);
+            $(".toggle .header .arrow").removeClass("open");
+        });
+    });
+</script>
+
+
+</body>
+</html>

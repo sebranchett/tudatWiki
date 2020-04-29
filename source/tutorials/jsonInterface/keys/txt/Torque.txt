@@ -1,1 +1,0 @@
-string | type |  | m |  | undefined, secondOrderGravitational, aerodynamic

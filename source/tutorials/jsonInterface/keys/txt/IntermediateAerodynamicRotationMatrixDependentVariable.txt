@@ -1,2 +1,0 @@
-string | baseFrame | Identifier of the target frame. | m
-string | targetFrame | Identifier of the base frame. | m

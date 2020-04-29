@@ -1,4 +1,0 @@
-string | type |  | m |  | constant, fromEngineProperties
-
-- Constant Thrust Magnitude
-- From Engine Thrust Magnitude

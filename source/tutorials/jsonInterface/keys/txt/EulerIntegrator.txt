@@ -1,1 +1,0 @@
-number | stepSize | Fixed step-size. Must be negative for backwards propagations. | m
